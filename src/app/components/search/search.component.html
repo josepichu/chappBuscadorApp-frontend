@@ -1,0 +1,88 @@
+  <main role="main" class="container">
+    <div class="jumbotron">
+      <h1><i class="fas fa-search-location"></i> Buscar habitaciones</h1>
+      <p class="lead">Encuentra tu destino ideal para tus siguientes vaciones al mejor precio garantizado *.</p>
+
+      <form (ngSubmit)="onSubmit(contactForm);" #buscadorForm="ngForm">
+
+        <div class="row">
+          <div class="col-md-3">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                    <input type="date" class="form-control"  
+                    placeholder="Fecha de entrada" 
+                    [(ngModel)]="buscadorReserva.fecha_entrada" 
+                    name="fecha_entrada"
+                    required 
+                    max="01/01/2019" >
+                  <div class="invalid-tooltip">
+                    Please choose a valid date
+                  </div>
+                </div>  
+          </div>
+          <div class="col-md-3">
+
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="date" class="form-control" 
+                  placeholder="Fecha de salida" 
+                  [(ngModel)]="buscadorReserva.fecha_salida" 
+                  name="fecha_salida"
+                  required 
+                  min="31/12/2019">
+                  <div class="invalid-tooltip">
+                    Please choose a valid date
+                  </div>
+                </div>  
+                
+              </div>
+        </div>
+        
+        <div class="row form-component">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-user-friends"></i></span>
+                    </div>
+                    <select class="form-control" [(ngModel)]="buscadorReserva.numero_adultos" name="numero_adultos">
+                        <option selected value="-1">Nº de adultos</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 o más</option>
+                      </select>
+                </div>
+            </div>
+            <div class="col-md-3" >
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-male"></i></span>
+                    </div>              
+                  <select class="form-control" [(ngModel)]="buscadorReserva.numero_peques" name="numero_peques">
+                      <option selected value="-1">Nº de niños</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3 o más</option>
+                    </select>
+                </div>
+            </div>            
+          </div>
+
+          <div class="row" class="form-component">
+              <div class="col-md-6">
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="buscadorReserva.todos_residentes" name="todos_residentes">
+                      <label class="custom-control-label">Todos los huéspedes son residentes en canarias</label>
+                    </div>
+              </div>
+            </div>          
+
+          <button  [disabled]="!buscadorForm.form.valid" class="form-component btn btn-primary btn-lg">Buscar</button>
+          
+       </form>
+
+    </div>
+  </main>
