@@ -8,7 +8,12 @@ import { buscadorReserva } from '../../models/buscadorReserva';
 })
 export class SearchComponent  {
 
-  public buscadorReserva = new buscadorReserva();
+  public buscadorReserva:buscadorReserva = {
+    fecha_entrada: '2019-01-01',
+    fecha_salida: null,
+    numero_adultos: -1,
+    numero_peques: -1
+  };
 
   constructor() { 
     
