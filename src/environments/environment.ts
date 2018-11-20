@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  appName: 'Chapp buscador de habitaciones simple',
+  production: false,
+  apiURL: 'http://portalproveedor-desarrollo-backoffice.intranet/api/v1/public',
+  appIds: {
+    portalProveedor: '1_v2nyee3gv6swowsokocoock8wcwckscw4so8so8ss0o0c8kso'// api key para identificar al cliente en el back
+  }
+
 };
 
 /*
