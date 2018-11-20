@@ -12,11 +12,16 @@ import { SearchComponent } from './components/search/search.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthHttp } from './services/http/http.service'
 import { AuthGuard } from './services/auth/auth.guard';
+import { LoginComponent } from './pages/login/login.component';
+
+// páginas
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
