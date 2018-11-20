@@ -8,6 +8,11 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 
+// servicios y guards
+import { AuthService } from './services/auth/auth.service';
+import { AuthHttp } from './services/http/http.service'
+import { AuthGuard } from './services/auth/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +23,11 @@ import { SearchComponent } from './components/search/search.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthHttp,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
