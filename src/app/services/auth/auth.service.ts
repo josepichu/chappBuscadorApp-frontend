@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 
@@ -11,10 +11,10 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  login( email: String, password: String){    
-    let login =  this.httpClient.post(`${environment.apiURL}/login`, {
-      client_id: environment.appIds.portalProveedor,
-      email,
+  login( username: String, password: String){    
+    let login =  this.httpClient.post(`${environment.loginCheck}`, {
+      client_id: environment.appIds.appId,
+      username,
       password
     });    
     return login;
@@ -31,6 +31,10 @@ export class AuthService {
 
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('current_user'));
+  }
+
+  isAuthenticated() {
+    this.getCurrentUser() !== null
   }
 
 }

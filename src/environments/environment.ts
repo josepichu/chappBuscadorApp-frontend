@@ -5,9 +5,10 @@
 export const environment = {
   appName: 'Chapp buscador de habitaciones simple',
   production: false,
-  apiURL: 'http://portalproveedor-desarrollo-backoffice.intranet/api/v1/public',
+  apiURL: 'http://chappbuscador.backend/index.php/api',
+  loginCheck: 'http://chappbuscador.backend/index.php/login_check',
   appIds: {
-    portalProveedor: '1_v2nyee3gv6swowsokocoock8wcwckscw4so8so8ss0o0c8kso'// api key para identificar al cliente en el back
+    appId: '1_v2nyee3gv6swowsokocoock8wcwckscw4so8so8ss0o0c8kso'// api key para identificar al cliente en el back
   }
 
 };
