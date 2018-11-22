@@ -8,16 +8,14 @@ import { buscadorReserva } from '../../models/buscadorReserva';
 })
 export class SearchComponent  {
 
-  public buscadorReserva:buscadorReserva = {
-    fecha_entrada: '2019-01-01',
-    fecha_salida: null,
-    numero_adultos: -1,
-    numero_peques: -1
-  };
-
+  public buscadorReserva =  new buscadorReserva('2019-01-01', null,-1,-1, true);
+  
   constructor() { 
     
   }
 
+  onClickResidentes() {
+   this.buscadorReserva.setTodosResidentes(!this.buscadorReserva.todos_residentes); 
+  }
 
 }
