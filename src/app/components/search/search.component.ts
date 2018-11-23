@@ -8,7 +8,7 @@ import { buscadorReserva } from '../../models/buscadorReserva';
 })
 export class SearchComponent  {
 
-  public buscadorReserva =  new buscadorReserva('2019-01-01', null,-1,-1, false);
+  public buscadorReserva =  new buscadorReserva('2019-01-01', null, 0, 0, false);
   
   constructor() { 
     

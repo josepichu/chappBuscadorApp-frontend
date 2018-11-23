@@ -1,76 +1,96 @@
   <main role="main" class="container">
     <div class="jumbotron">
-      <h1><i class="fas fa-search-location"></i> Buscar habitaciones</h1>
-      <p class="lead">Encuentra tu destino ideal para tus siguientes vaciones al mejor precio garantizado *.</p>
+    <h3> Consultar disponibilidad</h3>
+      <!-- <p class="lead">Encuentra tu destino ideal para tus siguientes vaciones al mejor precio garantizado *.</p> -->
 
       <form (ngSubmit)="onSubmit(contactForm);" #buscadorForm="ngForm">
 
         <div class="row">
           <div class="col-md-3">
-              <div class="input-group">
+              <div class="form-group">          
+                  <label for="fecha_entrada"><small>Fecha de entrada</small></label>
+                  <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    <span class="input-group-text bg-primary text-white"><i class="far fa-calendar-alt"></i></span>
                   </div>
                     <input type="date" class="form-control"  
                     placeholder="Fecha de entrada" 
                     [(ngModel)]="buscadorReserva.fecha_entrada" 
+                    id="fecha_entrada"
                     name="fecha_entrada"
                     required 
                     max="01/01/2019" >
                   <div class="invalid-tooltip">
                     Please choose a valid date
                   </div>
-                </div>  
+                </div> 
+                </div> 
           </div>
           <div class="col-md-3">
 
+              <div class="form-group">          
+                  <label for="fecha_salida"><small>Fecha de salida</small></label>
+
               <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" ><i class="far fa-calendar-alt"></i></span>
+                    <span class="input-group-text bg-primary text-white" ><i class="far fa-calendar-alt"></i></span>
                   </div>
                   <input type="date" class="form-control" 
                   placeholder="Fecha de salida" 
                   [(ngModel)]="buscadorReserva.fecha_salida" 
                   name="fecha_salida"
+                  id="fecha_salida"
                   required 
                   min="31/12/2019">
                   <div class="invalid-tooltip">
                     Please choose a valid date
                   </div>
                 </div>  
+              </div>  
                 
               </div>
-        </div>
-        
-        <div class="row form-component">
-            <div class="col-md-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-user-friends"></i></span>
-                    </div>
-                    <select class="form-control" [(ngModel)]="buscadorReserva.numero_adultos" name="numero_adultos">
-                        <option selected value="-1">Nº de adultos</option>
+
+              <div class="col-md-3">
+
+                  <div class="form-group">          
+                      <label for="numero_adultos"><small>Nº de adultos</small></label>
+    
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-user-friends"></i></span>
+                      </div>
+                      <select class="form-control" [(ngModel)]="buscadorReserva.numero_adultos" id="numero_adultos" name="numero_adultos">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3 o más</option>
+                        </select>
+                  </div>
+                  </div>
+
+              </div>
+
+              <div class="col-md-3" >
+
+                  <div class="form-group">          
+                      <label for="numero_peques"><small>Nº de menores</small></label>
+    
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-male"></i></span>
+                      </div>              
+                    <select class="form-control" [(ngModel)]="buscadorReserva.numero_peques" id="numero_peques" name="numero_peques">
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3 o más</option>
                       </select>
-                </div>
-            </div>
-            <div class="col-md-3" >
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="validationTooltipFechaSalidaPrepend"><i class="fas fa-male"></i></span>
-                    </div>              
-                  <select class="form-control" [(ngModel)]="buscadorReserva.numero_peques" name="numero_peques">
-                      <option selected value="-1">Nº de niños</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3 o más</option>
-                    </select>
-                </div>
-            </div>            
-          </div>
-
+                  </div>
+              </div>            
+            </div>     
+              
+        </div>
+    
           <div class="row" class="form-component">
               <div class="col-md-6">
                 <div class="custom-control custom-checkbox">
