@@ -5,7 +5,7 @@ import { RequestOptionsArgs } from '@angular/http/src/interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthHttp {
+export class httpService {
 
   constructor(private http: HttpClient) { }
 
