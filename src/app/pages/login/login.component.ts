@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-//import { setInterval } from 'timers';
 import { ActivatedRoute } from '@angular/router';
+import { SpinnerComponent } from '../../components/layout/spinner/spinner.component';
+
 
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent{
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
     this.username = "";
     this.password = "";
-    this.loading = false;
+    this.loading = true;
   }
 
   ngOnInit() {    

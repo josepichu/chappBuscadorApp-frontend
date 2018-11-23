@@ -17,13 +17,16 @@
                           <input name="password" type="password" class="form-control" id="input-password" placeholder="Enter password" [(ngModel)]="password">
                           <small *ngIf="password.length == 0" class="form-text text-danger">Contraseña requerida</small>
                       </div>            
-                      <button type="submit" class="btn btn-primary " [disabled]="loading" >
+                      <button type="submit" class="btn btn-primary btn-block" [disabled]="loading" >
                           <span *ngIf="!loading" class="fa fa-sign-in">Entrar</span>
                           <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i>                                       
                       </button>
+
+                  
                   </form>                    
               </div>
           </div>
+          <app-spinner [loading]="loading"></app-spinner>
       </div>        
   </div>
 </div>
