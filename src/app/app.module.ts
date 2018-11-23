@@ -9,11 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { MenuComponent } from './components/layout/menu/menu.component';
+import { SpinnerComponent } from './components/layout/spinner/spinner.component';
 
 // servicios y guards
 import { AuthService } from './services/auth/auth.service';
 import { httpService } from './services/http/http.service'
 import { AuthGuard } from './services/auth/auth.guard';
+import { LayoutService } from './services/layout.service';
 
 
 // páginas
@@ -27,7 +29,8 @@ import { HomeComponent } from './pages/home/home.component';
     SearchComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { HomeComponent } from './pages/home/home.component';
   providers: [
     AuthService,
     httpService,
-    AuthGuard
+    AuthGuard,
+    LayoutService
   ],
   bootstrap: [AppComponent]
 })
