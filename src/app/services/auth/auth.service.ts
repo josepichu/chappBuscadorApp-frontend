@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  public user:any = null;
+
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   login( username: String, password: String){    
@@ -34,7 +36,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    this.getCurrentUser() !== null
+    return this.getCurrentUser() !== null
   }
 
 }
