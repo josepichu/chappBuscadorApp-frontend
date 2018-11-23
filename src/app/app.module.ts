@@ -17,10 +17,10 @@ import { httpService } from './services/http/http.service'
 import { AuthGuard } from './services/auth/auth.guard';
 import { LayoutService } from './services/layout.service';
 
-
 // páginas
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

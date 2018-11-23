@@ -22,6 +22,15 @@ export class AuthService {
     return login;
   }
 
+  signUp( _username: String, _password: String){    
+    let login =  this.httpClient.post(`${environment.signUp}`, {
+      client_id: environment.appIds.appId,
+      _username,
+      _password
+    });    
+    return login;
+  }
+
   check() {
     return this.httpClient.get(`${environment.apiURL}/token-is-live`);
   }

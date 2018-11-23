@@ -3,12 +3,13 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.sass']
 })
-export class LoginComponent{
+export class RegistroComponent implements OnInit {
 
   private username: String;
   private password: String;
@@ -20,25 +21,23 @@ export class LoginComponent{
     this.password = "";
     this.loading = false;
   }
-
-  ngOnInit() {    
-    this.sub = this.route.params.subscribe(params => {
-      this.authService.logout()
-    });
-  }  
-
-  ngOnDestroy() {
-    
+  ngOnInit() {
   }
 
-  doLogin() {    
+  doSignUp() {
     this.loading = true;
-    this.authService.login(this.username, this.password).subscribe(
+    this.authService.signUp(this.username, this.password).subscribe(
       (response: any) => {
-        localStorage.setItem('current_user', JSON.stringify(response));
-        localStorage.setItem('access_token', response["token"]);
         this.loading = false;
-        this.router.navigate(['home']);
+
+        console.log(response);
+
+        if (response.success) {
+
+          this.router.navigate(['home']);
+
+        } else console.error(response.msg);     
+
       },
       (response: any) => {
         this.loading = false;
