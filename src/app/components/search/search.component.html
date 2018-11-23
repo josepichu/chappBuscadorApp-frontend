@@ -73,10 +73,15 @@
 
           <div class="row" class="form-component">
               <div class="col-md-6">
-                  <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" [(ngModel)]="buscadorReserva.todos_residentes" (click)="onClickResidentes" name="todos_residentes">
-                      <label class="custom-control-label">Todos los huéspedes son residentes en canarias</label>
-                    </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" 
+                  class="custom-control-input" 
+                  id="customCheck1" 
+                  [checked]="buscadorReserva.todos_residentes"
+                  [(ngModel)]="buscadorReserva.todos_residentes" [ngModelOptions]="{standalone: true}"
+                  >
+                  <label class="custom-control-label" for="customCheck1">Todos los pasajeros son residentes en Canarias</label>
+                </div>
               </div>
             </div>          
 

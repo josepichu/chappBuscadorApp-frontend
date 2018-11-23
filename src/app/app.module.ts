@@ -12,7 +12,7 @@ import { MenuComponent } from './components/layout/menu/menu.component';
 
 // servicios y guards
 import { AuthService } from './services/auth/auth.service';
-import { AuthHttp } from './services/http/http.service'
+import { httpService } from './services/http/http.service'
 import { AuthGuard } from './services/auth/auth.guard';
 
 
@@ -37,7 +37,7 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   providers: [
     AuthService,
-    AuthHttp,
+    httpService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

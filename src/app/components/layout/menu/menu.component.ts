@@ -11,11 +11,16 @@ import { Router } from '@angular/router';
 export class MenuComponent  {
 
   public authService:AuthService;
+  private router:Router;
 
   constructor(authService:AuthService, router:Router) {
     this.authService = authService;
+    this.router = router;
    }
 
-
+   logout() {
+     this.authService.logout();
+     this.router.navigate(['/home']);
+   }
 
 }

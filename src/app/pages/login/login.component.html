@@ -4,8 +4,8 @@
       <div class="hidden-xs col-sm-2 col-md-3"></div>
       <div class="col-xs-12 col-sm-8 col-md-6">
           <div class="card border-dark">
-              <div class="card-header text-uppercase text-center">
-                  <h1 style="padding-top:40px;padding-bottom:20px;font-weight:100;"><i class="fas fa-search-location"></i> Buscador de Habitaciones</h1>
+              <div class="card-header text-center bg-dark text-white">
+                  <h3 style="padding-top:10px;padding-bottom:5px;">Iniciar Sesión</h3>
               </div>
               <div class="card-body">
                   <form #form="ngForm" name="form" (ngSubmit)="doLogin()" novalidate>
@@ -17,7 +17,7 @@
                           <input name="password" type="password" class="form-control" id="input-password" placeholder="Enter password" [(ngModel)]="password">
                           <small *ngIf="password.length == 0" class="form-text text-danger">Contraseña requerida</small>
                       </div>            
-                      <button type="submit" class="btn btn-secondary bg-dark btn-block" [disabled]="loading" >
+                      <button type="submit" class="btn btn-primary " [disabled]="loading" >
                           <span *ngIf="!loading" class="fa fa-sign-in">Entrar</span>
                           <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i>                                       
                       </button>
