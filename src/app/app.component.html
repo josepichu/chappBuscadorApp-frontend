@@ -18,6 +18,8 @@
 
     <app-menu></app-menu>
 
+    <app-status-msg *ngIf="show_status_msg" [level]="status_msg_data.level" [msg]="status_msg_data.msg"></app-status-msg>
+
     <router-outlet></router-outlet>
 
   </div>

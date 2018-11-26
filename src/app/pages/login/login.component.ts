@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { EventEmmiterService } from 'src/app/services/event.emmiter.service';
+import { EventMsgEmitter } from 'src/app/models/EventMsgEmitter';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent{
   private loading: boolean;
   private sub: any;
 
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute, private _eventEmiter: EventEmmiterService) {
     this.username = "";
     this.password = "";
     this.loading = false;
@@ -42,6 +44,10 @@ export class LoginComponent{
       },
       (response: any) => {
         this.loading = false;
+
+        var msg = response.error && response.error.message ? response.error.message : 'Error Inesperado'
+
+        this._eventEmiter.sendStatusMessage(new EventMsgEmitter('danger', msg))
       }
     );
   }

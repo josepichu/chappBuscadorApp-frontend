@@ -16,11 +16,13 @@ import { AuthService } from './services/auth/auth.service';
 import { httpService } from './services/http/http.service'
 import { AuthGuard } from './services/auth/auth.guard';
 import { LayoutService } from './services/layout.service';
+import { EventEmmiterService } from './services/event.emmiter.service';
 
 // páginas
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { StatusMsgComponent } from './components/layout/status-msg/status-msg.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     HomeComponent,
     MenuComponent,
     SpinnerComponent,
-    RegistroComponent
+    RegistroComponent,
+    StatusMsgComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     AuthService,
     httpService,
     AuthGuard,
-    LayoutService
+    LayoutService,
+    EventEmmiterService
   ],
   bootstrap: [AppComponent]
 })
