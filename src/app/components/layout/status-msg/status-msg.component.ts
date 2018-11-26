@@ -11,7 +11,7 @@ export class StatusMsgComponent implements OnInit {
   @Input() msg: string;
 
   constructor() {
-    this.level + 'alert-' + this.level
+
   }
 
   ngOnInit() {

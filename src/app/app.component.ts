@@ -25,9 +25,11 @@ export class AppComponent {
     this.show_status_msg = true;
     this.status_msg_data = data;
 
+    console.log(data);
+    
     setTimeout(function() {
       this.show_status_msg = false;
-    }, 2000)
+    }.bind(this), 3000)
 
   }
 
