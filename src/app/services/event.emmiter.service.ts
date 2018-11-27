@@ -15,9 +15,11 @@ export class EventEmmiterService {
    * enviamos mensajes de estado al front para ser mostrados al usuario
    * @param data 
    */
-  sendStatusMessage(EventMsgEmitter:EventMsgEmitter) {
+  sendStatusMessage(level, msg) {
 
-    this.statusMsg.emit(EventMsgEmitter);
+    var em = new EventMsgEmitter(level, msg)
+
+    this.statusMsg.emit(em);
   }
 
 }

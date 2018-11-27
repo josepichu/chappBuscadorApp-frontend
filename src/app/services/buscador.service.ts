@@ -1,12 +1,23 @@
 import { Injectable } from '@angular/core';
-import { httpService } from './http/http.service';
-
+import { environment } from '../../environments/environment';
+import { buscadorReserva } from '../models/buscadorReserva';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BusquedaResponse } from '../models/Response/BusquedaResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuscadorService {
 
-  constructor(httpService:httpService) { }
+  httpService:HttpClient;
+
+  constructor(httpService:HttpClient) {
+    this.httpService = httpService;
+   }
+
+  buscar$(data:buscadorReserva): Observable<BusquedaResponse>{
+    return this.httpService.post<BusquedaResponse>(`${environment.baseURL}/disponibilidad`, data);
+  }
   
 }

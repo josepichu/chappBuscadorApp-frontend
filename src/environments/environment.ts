@@ -5,6 +5,7 @@
 export const environment = {
   appName: 'Chapp buscador de habitaciones simple',
   production: false,
+  baseURL: 'http://127.0.0.1:8000',
   apiURL: 'http://127.0.0.1:8000/api',
   loginCheck: 'http://127.0.0.1:8000/login_check',
   signUp: 'http://127.0.0.1:8000/register',

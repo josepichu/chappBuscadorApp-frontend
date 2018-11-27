@@ -3,7 +3,7 @@
     <h3><i class="fas fa-search"></i> Consultar disponibilidad</h3>
       <!-- <p class="lead">Encuentra tu destino ideal para tus siguientes vaciones al mejor precio garantizado *.</p> -->
 
-      <form (ngSubmit)="onSubmit(contactForm);" #buscadorForm="ngForm">
+      <form (ngSubmit)="onSubmit(buscadorForm);" #buscadorForm="ngForm">
 
         <div class="row">
           <div class="col-md-3">
@@ -105,9 +105,42 @@
               </div>
             </div>          
 
-          <button  [disabled]="!buscadorForm.form.valid" class="form-component btn btn-primary btn-lg">Buscar</button>
+          <button type="submit" [disabled]="!buscadorForm.form.valid" class="form-component btn btn-primary btn-lg">Buscar</button>
           
        </form>
 
     </div>
+
+    <div class="row">
+
+       <div class="col-md-4 text-center" *ngFor="let habitacion of habitaciones">
+ 
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../../assets/img/{{habitacion.foto_principal}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ habitacion.descripcion }}</h5>
+            <hr>
+            <p class="card-text float-sm-left float-md-left float-lg-left text-center">
+              <i class="fas fa-user hab-feature"  data-toggle="tooltip" data-placement="top" title="capacidad {{ habitacion.capacidad }} personas"></i> {{ habitacion.capacidad }} 
+              <i class="fas fa-shower hab-feature" [ngClass]="{'disabled': !habitacion.ducha }" data-toggle="tooltip" data-placement="top" title="Ducha {{ habitacion.ducha ? 'disponible' : 'no disponible' }}"></i>
+              <i class="fas fa-wifi hab-feature" [ngClass]="{'disabled': !habitacion.wifi }" data-toggle="tooltip" data-placement="top" title="Wifi {{ habitacion.wifi ? 'disponible' : 'no disponible' }}"></i>
+              <i class="fas fa-tv hab-feature" [ngClass]="{'disabled': !habitacion.television }" data-toggle="tooltip" data-placement="top" title="SmartTV {{ habitacion.television ? 'disponible' : 'no disponible' }}"></i>
+              <i class="fas fa-temperature-low hab-feature" [ngClass]="{'disabled': !habitacion.aire_acondicionado }" data-toggle="tooltip" data-placement="top" title="Aire acondicionado {{ habitacion.aire_acondicionado ? 'disponible' : 'no disponible' }}"></i>
+              <i class="fas fa-swimming-pool hab-feature" [ngClass]="{'disabled': !habitacion.jaccuzzi }" data-toggle="tooltip" data-placement="top" title="jaccuzzi {{ habitacion.jaccuzzi ? 'disponible' : 'no disponible' }}"></i>
+            </p>
+                      
+          </div>
+        
+          <h3>{{ habitacion.precio }}€</h3>
+              
+          <div class="card-body">
+            <a href="#" class="btn btn-primary btn-block" *ngIf="authService.isAuthenticated()">Reservar</a>
+          </div>
+        </div>
+
+       </div>
+
+    </div>
+
+
   </main>

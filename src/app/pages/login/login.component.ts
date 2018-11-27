@@ -3,7 +3,6 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EventEmmiterService } from 'src/app/services/event.emmiter.service';
-import { EventMsgEmitter } from 'src/app/models/EventMsgEmitter';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +37,7 @@ export class LoginComponent{
     this.authService.login(this.username, this.password).subscribe(
       (response: any) => {
         localStorage.setItem('current_user', JSON.stringify(response));
-        localStorage.setItem('access_token', response["token"]);
+        localStorage.setItem('access_token', response["payload"]["token"]);
         this.loading = false;
         this.router.navigate(['home']);
       },
@@ -47,7 +46,7 @@ export class LoginComponent{
 
         var msg = response.error && response.error.message ? response.error.message : 'Error Inesperado'
 
-        this._eventEmiter.sendStatusMessage(new EventMsgEmitter('danger', msg))
+        this._eventEmiter.sendStatusMessage('danger', msg)
       }
     );
   }
