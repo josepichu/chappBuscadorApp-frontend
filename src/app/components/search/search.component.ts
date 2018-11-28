@@ -4,6 +4,7 @@ import { EventEmmiterService } from 'src/app/services/event.emmiter.service';
 import { BuscadorService } from 'src/app/services/buscador.service';
 import { Habitacion } from '../../models/Habitacion';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 
 @Component({
@@ -38,6 +39,8 @@ export class SearchComponent  {
        if (response.success) {
 
            this.habitaciones = response.data;
+
+           if (response.total == 0) this.eventEmmiterService.sendStatusMessage('info', 'No hay disponibilidad para las fechas seleccionadas');
            
        } else {
         this.eventEmmiterService.sendStatusMessage('danger', response.mensaje.msg);

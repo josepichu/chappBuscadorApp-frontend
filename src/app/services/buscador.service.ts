@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { buscadorReserva } from '../models/buscadorReserva';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BusquedaResponse } from '../models/Response/BusquedaResponse';
 
 @Injectable({

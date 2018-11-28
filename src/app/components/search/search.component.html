@@ -134,7 +134,7 @@
           <h3>{{ habitacion.precio }}€</h3>
               
           <div class="card-body">
-            <a href="#" class="btn btn-primary btn-block" *ngIf="authService.isAuthenticated()">Reservar</a>
+            <a href="#" [routerLink]="[ '/reserva', habitacion.id, buscadorReserva.fecha_entrada, buscadorReserva.fecha_salida ]" class="btn btn-primary btn-block" *ngIf="authService.isAuthenticated()">Reservar</a>
           </div>
         </div>
 

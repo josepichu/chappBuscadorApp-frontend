@@ -23,6 +23,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { StatusMsgComponent } from './components/layout/status-msg/status-msg.component';
+import { ReservaComponent } from './pages/habitaciones/reserva/reserva.component';
+import { ReservasUsuarioComponent } from './pages/reservas/usuario/reservas.usuario.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { StatusMsgComponent } from './components/layout/status-msg/status-msg.co
     MenuComponent,
     SpinnerComponent,
     RegistroComponent,
-    StatusMsgComponent
+    StatusMsgComponent,
+    ReservaComponent,
+    ReservasUsuarioComponent
   ],
   imports: [
     BrowserModule,

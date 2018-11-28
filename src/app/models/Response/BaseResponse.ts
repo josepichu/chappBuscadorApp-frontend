@@ -3,7 +3,7 @@
  */
 export class BaseResponse {
 
-    public data:any[]
+    public data:any
     public mensaje:responseMsg
     public total: number
     public success: boolean

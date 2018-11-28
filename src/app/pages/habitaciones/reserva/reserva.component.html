@@ -1,0 +1,131 @@
+<app-spinner [loading]="loading"></app-spinner>
+
+<div class="card" *ngIf="habitacion">
+    <div class="card-header bg-primary text-center text-white"><h3>{{ habitacion.descripcion }}</h3></div>
+    <div class="card-body">
+
+      <!----<h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>-->
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <img src="../../../../assets/img/{{ habitacion.foto_principal }}" alt="">
+          </div>
+
+          <div class="col-lg-6">
+                <ul>
+                    <li><i class="fas fa-user hab-feature fa-2x"></i> Capacidad para {{ habitacion.capacidad }} personas </li>
+                    <li [ngClass]="{'disabled': !habitacion.ducha }"><i class="fas fa-shower hab-feature fa-2x" ></i> Ducha independiente {{ habitacion.ducha ? 'disponible' : 'no disponible' }}</li>
+                    <li [ngClass]="{'disabled': !habitacion.wifi }"><i class="fas fa-wifi hab-feature fa-2x" ></i> Conexión Wifi {{ habitacion.wifi ? 'disponible' : 'no disponible' }} dentro de la habitación</li>
+                    <li [ngClass]="{'disabled': !habitacion.television }"><i class="fas fa-tv hab-feature fa-2x" ></i> SmartTV {{ habitacion.television ? 'disponible' : 'no disponible' }} con mando a distancia</li>
+                    <li [ngClass]="{'disabled': !habitacion.aire_acondicionado }"><i class="fas fa-temperature-low hab-feature fa-2x" ></i> Aire acondicionado {{ habitacion.aire_acondicionado ? 'disponible' : 'no disponible' }}</li>
+                    <li [ngClass]="{'disabled': !habitacion.jaccuzzi }"><i class="fas fa-swimming-pool hab-feature fa-2x" ></i> Jaccuzzi {{ habitacion.jaccuzzi ? 'disponible' : 'no disponible' }}</li>
+                </ul>
+          </div>          
+
+        </div>
+
+        <hr />
+
+        <div class="row">
+
+          <div class="col-lg-6">
+
+              <div class="card border-success">
+                  <div class="card-header text-center bg-success text-white"><h4>Resumen reserva</h4></div>
+                  <div class="card-body" style="font-size: 20px;">
+                    <ul>
+                      <li><i class="far fa-calendar-alt"></i> Fecha de entrada: {{ reserva.fecha_entrada |  date: 'dd/MM/yyyy' }}</li>
+                      <li><i class="far fa-calendar-alt"></i> Fecha de salida: {{ reserva.fecha_salida | date: 'dd/MM/yyyy' }}</li>
+                      <li>Número de noches: {{ num_noches }}</li>
+                      <li>Precio noche: {{ habitacion.precio }}€</li>
+                      
+                      <li>Total a pagar: {{ num_noches*habitacion.precio }}€</li>
+                    </ul>
+                      
+                      
+                  </div>
+                </div>
+
+
+          </div>
+
+
+          <div class="col-lg-6">
+
+              <h5>Datos de reserva</h5>
+              <hr>  
+
+              <form (ngSubmit)="onSubmit(reservaForm);" #reservaForm="ngForm">
+
+              <div class="col-md-12 mb-12">
+                  <label for="validationCustomEmail">Email de contacto</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="email" class="form-control" id="validationCustomEmail"
+                     placeholder="Email" 
+                     [(ngModel)]="reserva.email_contacto" 
+                     name="email_contacto"
+                     aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                      Por favor introduce un email de contacto
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 mb-12" style="margin-top: 15px">
+                    <label for="validationCustomTC">Tarjeta de crédito</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-envelope"></i></span>
+                      </div>
+                      <input type="text" 
+                      class="form-control" 
+                      id="validationCustomTC" 
+                      placeholder="tarjeta_credito" 
+                      aria-describedby="inputGroupPrepend" 
+                      [(ngModel)]="reserva.tarjeta_credito" 
+                      name="tarjeta_credito"
+                      required>
+                      <div class="invalid-feedback">
+                        Por favor introduce un nº de tarjeta de crédito (no se harán cargos)
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-12"  style="margin-top: 15px">
+                      <label for="validationCustomTelefono">Teléfono de contacto</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="validationCustomTelefono"
+                         placeholder="Teléfono" 
+                         [(ngModel)]="reserva.telefono_contacto" 
+                         name="telefono_contacto"
+                         aria-describedby="inputGroupPrepend" 
+                         required>
+                        <div class="invalid-feedback">
+                          Por favor introduce un nº de contactoTarjeta de crédito
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 mb-12"  style="margin-top: 25px" *ngIf="authService.isAuthenticated()">
+                        <button type="submit" [disabled]="!reservaForm.form.valid" class="form-component btn btn-primary btn-lg btn-block">Reservar</button>
+                    </div>
+
+                    
+      
+              </form>
+
+            </div>          
+
+        </div>
+
+
+    </div>
+  </div>

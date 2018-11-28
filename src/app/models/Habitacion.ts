@@ -15,8 +15,4 @@ export class Habitacion {
     public foto_principal:string;
 
 
-    constructor(data) {
-        self = data
-    }
-
   }
