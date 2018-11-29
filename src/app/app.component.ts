@@ -3,6 +3,7 @@ import { log } from 'util';
 import { EventEmmiterService } from './services/event.emmiter.service';
 import { EventMsgEmitter } from './models/EventMsgEmitter';
 import { StatusMsgComponent } from './components/layout/status-msg/status-msg.component';
+import { AuthService } from './services/auth/auth.service';
 
 
 
@@ -16,8 +17,9 @@ export class AppComponent {
 
   show_status_msg: boolean = false;
   status_msg_data: EventMsgEmitter;
+  
 
-  constructor(private _eventEmiter: EventEmmiterService) {
+  constructor(private _eventEmiter: EventEmmiterService, public authService:AuthService) {
     this._eventEmiter.statusMsg.subscribe(data => this.setEstatusMsg(data));
   }
  

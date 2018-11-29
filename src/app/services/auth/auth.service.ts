@@ -44,6 +44,11 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('current_user'));
   }
 
+  getCurrentUserName() {
+    let userInfo = this.getCurrentUser()
+    return userInfo.username
+  }  
+
   isAuthenticated() {
     return this.getCurrentUser() !== null
   }

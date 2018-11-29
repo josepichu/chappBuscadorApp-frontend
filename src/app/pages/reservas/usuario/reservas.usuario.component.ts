@@ -10,7 +10,7 @@ import { Reserva } from 'src/app/models/Reserva';
 })
 export class ReservasUsuarioComponent implements OnInit {
 
-  public reservas:Reserva[];
+  public reservas:Reserva[] = [];
 
   constructor(public reservasService:ReservasService, public eventEmmiterService:EventEmmiterService) {
 

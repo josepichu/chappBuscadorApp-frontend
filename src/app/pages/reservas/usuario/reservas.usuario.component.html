@@ -117,7 +117,12 @@
                       </div>
                     </div>
 
-                                       
+                    <div class="col-md-12 mb-12"  style="margin-top: 25px" >
+                      <p><small>* cancelación gratuita hasta 72 horas antes del checkin</small></p>
+                        <button type="button" class="form-component btn btn-danger">* Cancelar reserva</button> 
+                        <button type="button" style="margin-left: 5px;"  class="form-component btn btn-primary">Volver a reservar</button> 
+                        <button style="margin-left: 5px;" type="button" class="form-component btn btn-outline-success"><i class="fab fa-tripadvisor"></i> Opinar</button>
+                    </div>                       
       
               </form>
 
@@ -127,4 +132,8 @@
 
 
     </div>
+  </div>
+
+  <div class="card text-center" style="margin-top: 20px;" *ngIf="reservas.length == 0">
+      <div class="card-header text-center"><h5>Actualmente no tiene registrada ninguna reserva</h5></div>
   </div>
